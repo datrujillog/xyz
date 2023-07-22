@@ -3,6 +3,7 @@ const { Sequelize } = require('sequelize');
 const { config } = require("../configs/config");
 
 // importar modelos
+const ProductModel = require("./models/product.Model");
 
 
 
@@ -17,6 +18,9 @@ const sequelize = new Sequelize(config.dbName, config.dbUser, config.dbPassword,
     },
 });
 
+// vamos a crear los modelos
+const Product = ProductModel(sequelize);
+
 
 // relacion entre modelos
 
@@ -25,4 +29,5 @@ const sequelize = new Sequelize(config.dbName, config.dbUser, config.dbPassword,
 module.exports = {
     conn:sequelize,
     // modelos  
+    Product,
 }
