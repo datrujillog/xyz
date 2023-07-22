@@ -5,6 +5,8 @@ const { config } = require("../configs/config");
 // importar modelos
 const ProductModel = require("./models/product.Model");
 const InventoryModel = require("./models/Inventory.Model");
+const SaleModel = require("./models/sales.Model");
+const ClientModel = require("./models/client.Model");
 
 
 
@@ -22,6 +24,8 @@ const sequelize = new Sequelize(config.dbName, config.dbUser, config.dbPassword,
 // vamos a crear los modelos
 const Product = ProductModel(sequelize);
 const Inventory = InventoryModel(sequelize);
+const Sale = SaleModel(sequelize);
+const Client = ClientModel(sequelize);
 
 
 // relacion entre modelos
@@ -30,6 +34,10 @@ const Inventory = InventoryModel(sequelize);
 Inventory.belongsTo(Product, { foreignKey: 'productId' });
 Product.hasOne(Inventory, { foreignKey: 'productId' });
 
+//Relación con la tabla Client y Sale
+Sale.belongsTo(Client, { foreignKey: 'clientId' });
+Client.hasMany(Sale, { foreignKey: 'clientId' });
+
 
 
 // exportar modelos
@@ -37,5 +45,7 @@ module.exports = {
     conn:sequelize,
     // modelos  
     ProductModel:Product,
-    InventoryModel:Inventory
+    InventoryModel:Inventory,
+    SaleModel:Sale,
+    ClientModel:Client
 }
