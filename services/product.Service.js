@@ -9,7 +9,8 @@ class ProductService {
 
    }
    async getProducts() {
-      return 'Hello World...'
+      const products = await ProductModel.findAll();
+      return products;
    }
 
    async createProduct(product) {
@@ -17,6 +18,11 @@ class ProductService {
       const createdProduct = await ProductModel.create(product);
       return createdProduct;
 
+   }
+
+   async updateProduct(id, product) {
+      const updatedProduct = await ProductModel.update(product, { where: { id } });
+      return updatedProduct;
    }
 
 }
