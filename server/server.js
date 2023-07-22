@@ -1,9 +1,11 @@
+const { config } = require("../configs/config");
 const app = require("../app");
 
-const port = process.env.PORT || 3000;
 
-app.listen(port, () => {
+
+app.listen(config.port, () => {
     console.log('Server listening on port 3000');
 
-    console.log(`http://localhost:${port}`)
+    console.log(`http://localhost:${config.port}`)
+  
 });
