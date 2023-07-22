@@ -29,5 +29,5 @@ const Product = ProductModel(sequelize);
 module.exports = {
     conn:sequelize,
     // modelos  
-    Product,
+    ProductModel:Product,
 }
