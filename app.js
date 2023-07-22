@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const swaggerUi = require('swagger-ui-express');
 
 const app = express();
 
@@ -14,6 +15,9 @@ app.use(express.urlencoded({extended:false}));
 
 //utilizar rutas
 Product(app);
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(require('./libs/swagger/swagger.json')));
+
 
 
 module.exports = app;
