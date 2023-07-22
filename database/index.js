@@ -4,6 +4,7 @@ const { config } = require("../configs/config");
 
 // importar modelos
 const ProductModel = require("./models/product.Model");
+const InventoryModel = require("./models/Inventory.Model");
 
 
 
@@ -20,9 +21,15 @@ const sequelize = new Sequelize(config.dbName, config.dbUser, config.dbPassword,
 
 // vamos a crear los modelos
 const Product = ProductModel(sequelize);
+const Inventory = InventoryModel(sequelize);
 
 
 // relacion entre modelos
+
+// Relación con la tabla Product
+Inventory.belongsTo(Product, { foreignKey: 'productId' });
+Product.hasOne(Inventory, { foreignKey: 'productId' });
+
 
 
 // exportar modelos
