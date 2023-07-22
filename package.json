@@ -1,0 +1,26 @@
+{
+  "name": "xyz",
+  "version": "1.0.0",
+  "description": "xyz",
+  "main": "app.js",
+  "scripts": {
+    "start": "set NODE_ENV=production node ./server/server",
+    "dev": "cross-env NODE_ENV=development npx nodemon ./server/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.5.2",
+    "sequelize": "^6.32.1",
+    "sqlite3": "^5.1.6"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
