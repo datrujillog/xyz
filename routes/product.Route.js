@@ -16,7 +16,7 @@ function ProductRouter(app) {
         res.json(products);
     });
 
-    router.post('/', async (req, res) => {
+    router.post('/create', async (req, res) => {
         try {
             const product = req.body;
             const createdProduct = await productServ.createProduct(product);
@@ -26,7 +26,7 @@ function ProductRouter(app) {
         }
     });
 
-    router.put('/:id', async (req, res) => {
+    router.put('/update/:id', async (req, res) => {
         try {
             const id = req.params.id;
             const product = req.body;
@@ -37,7 +37,7 @@ function ProductRouter(app) {
         }
     });
 
-    router.delete('/:id', async (req, res) => {
+    router.delete('/delete/:id', async (req, res) => {
         try {
             const id = req.params.id;
             const deletedProduct = await productServ.deleteProduct(id);
