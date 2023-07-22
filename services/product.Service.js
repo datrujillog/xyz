@@ -25,6 +25,11 @@ class ProductService {
       return updatedProduct;
    }
 
+   async deleteProduct(id) {
+      const deletedProduct = await ProductModel.destroy({ where: { id } });
+      return deletedProduct;
+   }
+
 }
 
 module.exports = ProductService;
