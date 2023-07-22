@@ -37,6 +37,16 @@ function ProductRouter(app) {
         }
     });
 
+    router.delete('/:id', async (req, res) => {
+        try {
+            const id = req.params.id;
+            const deletedProduct = await productServ.deleteProduct(id);
+            res.json(deletedProduct);
+        } catch (error) {
+            res.status(400).json({ message: error.message });
+        }
+    });
+
 
 
 }
