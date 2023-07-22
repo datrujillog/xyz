@@ -4,14 +4,19 @@ module.exports = (sequelize) => {
     const Inventory = sequelize.define(
         "inventory",
         {
+            id: {
+                type: DataTypes.UUID,
+                defaultValue: DataTypes.UUIDV4,
+                primaryKey: true,
+            },
+            productId: {
+                type: DataTypes.UUID,
+                allowNull: false,
+            },
             stock: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
-            },
-            operator: {
-                type: DataTypes.STRING,
-                allowNull: false,
-            },
+            }
         },
         { timestamps: true }
     );
