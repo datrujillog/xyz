@@ -37,4 +37,5 @@ module.exports = {
     conn:sequelize,
     // modelos  
     ProductModel:Product,
+    InventoryModel:Inventory
 }
