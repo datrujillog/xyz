@@ -47,7 +47,16 @@ function ProductRouter(app) {
         }
     });
 
-
+    router.post('/sell/:id', async (req, res) => {
+        try {
+            const id = req.params.id;
+            const product = req.body;
+            const updatedProduct = await productServ.sellProduct(id, product);
+            res.json(updatedProduct);
+        } catch (error) {
+            res.status(400).json({ message: error.message });
+        }
+    });
 
 }
 
