@@ -16,6 +16,9 @@ module.exports = (sequelize) => {
             stock: {
                 type: DataTypes.INTEGER,
                 allowNull: false,
+            },
+            solid: {
+                type: DataTypes.INTEGER,
             }
         },
         { timestamps: true }
