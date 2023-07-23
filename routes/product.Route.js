@@ -51,8 +51,11 @@ function ProductRouter(app) {
         try {
             const id = req.params.id;
             const product = req.body;
-            const updatedProduct = await productServ.sellProduct(id, product);
-            res.json(updatedProduct);
+            const results = await productServ.sellProduct(id, product);
+            res.json({
+                message: "Sale made successfully",
+                results
+            });
         } catch (error) {
             res.status(400).json({ message: error.message });
         }
