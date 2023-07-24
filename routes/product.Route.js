@@ -70,6 +70,16 @@ function ProductRouter(app) {
             res.status(400).json({ message: error.message });
         }
     });
+
+    router.get('/stats', async (req, res) => {
+        try {
+            const results = await productServ.getProductStatistics();
+            res.json(results);
+        } catch (error) {
+            res.status(400).json({ message: error.message });
+        }
+    });
+
 }
 
 module.exports = ProductRouter;
