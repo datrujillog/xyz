@@ -104,6 +104,8 @@ Cada operario tiene un ID único como clave primaria para identificación.
 El campo Nombre guarda el nombre del operario.
 Tiempo de entrega indica el tiempo que tarda este operario en realizar una entrega, lo que podría ser útil para calcular el tiempo estimado de entrega de un producto.
 
+![Alt text](<assets/Diagrama EER/DB-XYZ-EER.png>)
+
 
 ## Documentación de la API swagger 
 
