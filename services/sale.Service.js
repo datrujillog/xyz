@@ -26,5 +26,23 @@ class SaleService {
         return sortedCustomers;
     }
 
+    async getDeliveryTimesByOperator(product) {
+        const client = await ClientModel.findOne({ where: { id: product.operatorId } });
+        if (!client) throw new Error("There is no client with that id");
+
+        const sale = await SaleModel.findOne({ where: { id: product.saleId } });
+        if (!sale) throw new Error("There is no sale with that id");
+
+        console.log(sale.quantity)
+        const updatedSale = await SaleModel.update({ deliveryTime: product.deliveryTime }, { where: { id: product.saleId } });
+
+
+        return {
+            msg: "Time delivery made successfully",
+            updatedSale
+        }
+
+    }
+
 }
 module.exports = SaleService;
