@@ -22,6 +22,7 @@
     ],
 
     "paths": {
+
       "/api/v1/product/create": {
         "post": {
           "summary": "create product",
@@ -31,7 +32,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/product"
+                  "$ref": "#/components/schemas/product post"
                 }
               }
             }
@@ -96,15 +97,74 @@
             }
           }
         }
+      },
+
+
+
+
+      "/api/v1/inventory": {
+        "get": {
+          "summary": "inventory",
+          "tags": ["inventory"],
+          "description": "inventory",
+          
+          "responses": {
+            "200": {
+              "description": "Inventory get successfully"
+            },
+            "400": {
+              "description": "Error in the shipping data"
+            },
+            "500": {
+              "description": "Error in the server"
+            }
+          }
+        }
+      },
+
+      "/api/v1/inventory/create": {
+        "post": {
+          "summary": "create Inventory",
+          "tags": ["inventory"],
+          "description": "create Inventory",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Inventory post"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Inventory created successfully"
+            },
+            "400": {
+              "description": "Error in the shipping data"
+            },
+            "500": {
+              "description": "Error in the server"
+            }
+          }
+        }
       }
-    },
+
+
+    },  
+
+
+
+
+
+
 
     
 
 
     "components": {
       "schemas": {
-        "product": {
+        "product post": {
           "type": "object",
           "properties": {
             "name": {
@@ -140,7 +200,7 @@
             "updateDate"
           ]
         },
-        "update":{
+        "product put":{
           "type": "object",
           "properties": {
             "name": {
@@ -176,7 +236,7 @@
             "updateDate"
           ]
         },
-        "delete":{
+        "product delete":{
             "type": "object",
             "properties": {
                 "name": {
@@ -211,7 +271,40 @@
                 "creationDate",
                 "updateDate"
             ]
-        }
+        },
+      
+
+
+      "Inventory get":{
+        "type": "object",
+        "properties": {
+
+            
+        },
+        "required": [
+            
+        ]
+      },
+
+
+      "Inventory post": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "example": "e7990dd3-8aac-476a-810a-3a00753f010b"
+          },
+          "stock": {
+            "type": "integer",
+            "example": 5
+          }
+          
+        },
+        "required": [
+          "productId",
+          "stock"
+        ]
       }
     }
   }
+}
