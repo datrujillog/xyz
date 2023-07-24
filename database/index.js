@@ -7,6 +7,7 @@ const ProductModel = require("./models/product.Model");
 const InventoryModel = require("./models/Inventory.Model");
 const SaleModel = require("./models/sales.Model");
 const ClientModel = require("./models/client.Model");
+const OperatorModel = require("./models/operator.Model");
 
 
 
@@ -26,6 +27,7 @@ const Product = ProductModel(sequelize);
 const Inventory = InventoryModel(sequelize);
 const Sale = SaleModel(sequelize);
 const Client = ClientModel(sequelize);
+const Operator = OperatorModel(sequelize);
 
 
 // relacion entre modelos
@@ -46,6 +48,14 @@ Sale.belongsTo(Product, { foreignKey: 'productId' });
 Product.hasOne(Inventory, { foreignKey: 'productId' });
 Inventory.belongsTo(Product, { foreignKey: 'productId' });
 
+//Relación con la tabla Operator y Product
+Product.belongsTo(Operator, { foreignKey: 'operatorId' });
+Operator.hasMany(Product, { foreignKey: 'operatorId' });
+
+//Relación con la tabla Operator y Client
+Operator.belongsTo(Client, { foreignKey: 'clientId' });
+Client.hasOne(Operator, { foreignKey: 'clientId' });
+
 
 
 // exportar modelos
@@ -55,5 +65,6 @@ module.exports = {
     ProductModel:Product,
     InventoryModel:Inventory,
     SaleModel:Sale,
-    ClientModel:Client
+    ClientModel:Client,
+    OperatorModel:Operator
 }
