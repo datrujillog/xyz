@@ -98,6 +98,25 @@
           }
         }
       },
+      "/api/v1/product/scores": {
+        "get": {
+          "summary": "scores product",
+          "tags": ["Product"],
+          "description": "scores product",
+          
+          "responses": {
+            "200": {
+              "description": "Product get successfully"
+            },
+            "400": {
+              "description": "Error in the shipping data"
+            },
+            "500": {
+              "description": "Error in the server"
+            }
+          }
+        }
+      },
 
 
 
