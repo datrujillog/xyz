@@ -210,6 +210,33 @@
           }
         }
       },
+      "/api/v1/sale/operators/time-delivery": {
+        "post": {
+          "summary": "Sales post time-delivery",
+          "tags": ["Sales"],
+          "description": "Manage the delivery times of your products by your operators",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Sales post time-delivery"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Sales created successfully"
+            },
+            "400": {
+              "description": "Error in the shipping data"
+            },
+            "500": {
+              "description": "Error in the server"
+            }
+          }
+        }
+      },
 
 
       "/api/v1/client/create": {
@@ -422,6 +449,29 @@
         },
         "required": [
           "stock"
+        ]
+      },
+      "Sales post time-delivery": {
+        "type": "object",
+        "properties": {
+          "operatorId": {
+            "type": "string",
+            "example": "e7990dd3-8aac-476a-810a-3a00753f010b"
+          },
+          "saleId": {
+            "type": "string",
+            "example": "e7990dd3-8aac-476a-810a-3a00753f010b"
+          },
+          "deliveryTime":{
+            "type": "string",
+            "example": 4.5
+          }
+          
+        },
+        "required": [
+          "operatorId",
+          "saleId",
+          "deliveryTime"
         ]
       },
 
