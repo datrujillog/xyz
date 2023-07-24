@@ -51,16 +51,28 @@
         }
       },
 
-      "/api/v1/product/update/": {
+      "/api/v1/product/update/{id}": {
         "put": {
           "summary": "update product",
           "tags": ["Product"],
           "description": "update product",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "schema": {
+                "type": "string",
+                "example": "e7990dd3-8aac-476a-810a-3a00753f010b"
+              },
+              "required": true,
+              "description": "id del producto"
+            }
+          ],
           "requestBody": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/update"
+                  "$ref": "#/components/schemas/product put"
                 }
               }
             }
@@ -79,11 +91,23 @@
         }
       },
 
-      "/api/v1/product/delete/": {
+      "/api/v1/product/delete/{id}": {
         "delete": {
           "summary": "delete product",
           "tags": ["Product"],
           "description": "delete product",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "schema": {
+                "type": "string",
+                "example": "e7990dd3-8aac-476a-810a-3a00753f010b"
+              },
+              "required": true,
+              "description": "id del producto"
+            }
+          ],
           
           "responses": {
             "200": {
