@@ -38,6 +38,14 @@ Product.hasOne(Inventory, { foreignKey: 'productId' });
 Sale.belongsTo(Client, { foreignKey: 'clientId' });
 Client.hasMany(Sale, { foreignKey: 'clientId' });
 
+//Relación con la tabla Product y Sale
+Product.hasMany(Sale, { foreignKey: 'productId' });
+Sale.belongsTo(Product, { foreignKey: 'productId' });
+
+//Relación con la tabla Product y Inventory
+Product.hasOne(Inventory, { foreignKey: 'productId' });
+Inventory.belongsTo(Product, { foreignKey: 'productId' });
+
 
 
 // exportar modelos
