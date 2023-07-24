@@ -1,0 +1,340 @@
+{
+	"info": {
+		"_postman_id": "69c6a1c6-ce09-4b12-8e5a-b1999317b1a7",
+		"name": "XYZ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16430771"
+	},
+	"item": [
+		{
+			"name": "Client",
+			"item": [
+				{
+					"name": "post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"angela\",\n    \"address\": \"calle 5\",\n    \"email\":\"example@example.com\",\n    \"phone\": \"555555555\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/client/create",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"client",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Inventory",
+			"item": [
+				{
+					"name": "get-inventario",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/inventory",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"inventory"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-inventary-One",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/inventory/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"inventory",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post-inventario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"productId\": \"d156fdc5-0d17-41cc-8114-f0e0104e4138\",\n    \"stock\": 80\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/inventory/create",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"inventory",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/product",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"product"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "estadisticas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/product/stats",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"product",
+								"stats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Tenis\",\n    \"description\": \"Tenis de deporte\",\n    \"creationDate\": \"2023-07-22\",\n    \"updateDate\": \"2023-07-22\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/product/create",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"product",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Camisa Negra\",\n    \"description\": \"Camisa de mangalarga\",\n    \"punctuation\": \"3\",\n    \"creationDate\": \"2023-07-22\",\n    \"updateDate\":\"2023-07-22\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/product/update/1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"product",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Camisa Negra\",\n    \"description\": \"Camisa de mangalarga\",\n    \"punctuation\": \"3\",\n    \"creationDate\": \"2023-07-22\",\n    \"updateDate\":\"2023-07-22\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/product/2",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"product",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "scores",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/product/scores",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"product",
+								"scores"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sale",
+			"item": [
+				{
+					"name": "time-delivery",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"operatorId\":\"054a6b37-781a-4614-b1b2-a758e60fe85b\",\n    \"saleId\": \"4c04bd87-ed05-4bf0-bae5-97f040d01dde\",\n    \"deliveryTime\":\"4.5\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/sale/operators/time-delivery",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"sale",
+								"operators",
+								"time-delivery"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "post-ventas",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"clientId\": \"5f7b6b3e-3e58-433e-9b29-0be2ffaf625f\",\n    \"quantity\": 1,\n    \"punctuation\": 4\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/product/sell/4224ae9c-0f52-4eaa-b1f8-4fc6af61aca3",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"product",
+								"sell",
+								"4224ae9c-0f52-4eaa-b1f8-4fc6af61aca3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Sale-get",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"stock\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/sale/best-clients",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"sale",
+								"best-clients"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
