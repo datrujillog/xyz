@@ -148,6 +148,48 @@
             }
           }
         }
+      },
+
+
+      "/api/v1/product/sell/{id}": {
+        "post": {
+          "summary": "se crea ventas",
+          "tags": ["Sales"],
+          "description": "se crea ventas",
+          "parameters": [
+            {
+              "in": "path",
+              "name": "id",
+              "schema": {
+                "type": "string",
+                "example": "e7990dd3-8aac-476a-810a-3a00753f010b"
+              },
+              "required": true,
+              "description": "id del producto"
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Sales post"
+                }
+              }
+            }
+          },
+          
+          "responses": {
+            "200": {
+              "description": "Sale get successfully"
+            },
+            "400": {
+              "description": "Error in the shipping data"
+            },
+            "500": {
+              "description": "Error in the server"
+            }
+          }
+        }
       }
 
 
@@ -285,8 +327,6 @@
             
         ]
       },
-
-
       "Inventory post": {
         "type": "object",
         "properties": {
@@ -302,6 +342,21 @@
         },
         "required": [
           "productId",
+          "stock"
+        ]
+      },
+
+
+      "Sales post": {
+        "type": "object",
+        "properties": {
+          "stock": {
+            "type": "integer",
+            "example": 1
+          }
+          
+        },
+        "required": [
           "stock"
         ]
       }
