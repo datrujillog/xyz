@@ -209,7 +209,38 @@
             }
           }
         }
+      },
+
+
+      "/api/v1/client/create": {
+        "post": {
+          "summary": "create client",
+          "tags": ["Client"],
+          "description": "create client",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/client post"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "client created successfully"
+            },
+            "400": {
+              "description": "Error in the shipping data"
+            },
+            "500": {
+              "description": "Error in the server"
+            }
+          }
+        }
       }
+
+
 
 
 
@@ -391,6 +422,35 @@
         },
         "required": [
           "stock"
+        ]
+      },
+
+
+      "client post": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "example"
+          },
+          "address": {
+            "type": "string",
+            "example": "calle 5"
+          },
+          "email": {
+            "type": "string",
+            "example": "example@example.com"         
+          },
+          "phone": {
+            "type": "string",
+            "example": "123456789"
+          } 
+        },
+        "required": [
+          "name",
+          "address",
+          "email",
+          "phone"
         ]
       }
     }
