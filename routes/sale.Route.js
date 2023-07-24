@@ -16,7 +16,7 @@ function SaleRouter(app) {
             const results = await saleServ.getTopCustomers();
             res.json({
                 message: "Best clients",
-                results
+                results 
             });
         } catch (error) {
             res.status(400).json({ message: error.message });

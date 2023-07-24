@@ -19,7 +19,7 @@ module.exports = (sequelize) => {
             },
             saleDate: {
                 type: DataTypes.DATE,
-                allowNull: false,
+                defaultValue: DataTypes.NOW,
             },
             quantity: {
                 type: DataTypes.INTEGER,

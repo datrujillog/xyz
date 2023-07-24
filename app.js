@@ -8,7 +8,7 @@ const app = express();
 const Product = require('./routes/product.Route');
 const Inventory = require('./routes/Inventory.Route');
 const Sale = require('./routes/sale.Route');
-
+const Clients = require('./routes/client.Route');
 
 //middlewares
 app.use(morgan('dev'));
@@ -20,6 +20,7 @@ app.use(express.urlencoded({extended:false}));
 Product(app);
 Inventory(app);
 Sale(app);
+Clients(app);
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(require('./libs/swagger/swagger.json')));
 

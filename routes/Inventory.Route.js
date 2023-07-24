@@ -11,7 +11,6 @@ function InventoryRouter(app) {
 
     app.use('/api/v1/inventory', router);
 
-    // GET /inventario: Obtener el inventario completo de productos en stock.
     router.get('/', async (req, res) => {
         try {
             const products = await InventoryServ.getProductsInventory();

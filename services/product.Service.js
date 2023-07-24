@@ -1,6 +1,6 @@
 'use strict';
 
-const { ProductModel, InventoryModel } = require("../database");
+const { ProductModel, InventoryModel,ClientModel,SaleModel } = require("../database");
 const InventoryService = require("./inventory.Service");
 class ProductService {
    constructor() {
@@ -36,15 +36,19 @@ class ProductService {
    async sellProduct(id, product) {
 
       const inventory = await this.InventoryServ.invetoryById(id);
-      if (product.stock > inventory.stock) throw new Error("Not enough stock");
-      
-      const newQuantity = inventory.stock - product.stock;
-      const solid = inventory.solid + product.stock;
+      if (product.quantity > inventory.stock) throw new Error("Not enough stock");
+      const newQuantity = inventory.stock - product.quantity;
+      const resta = inventory.stock - newQuantity;
+
+      const solid = inventory.solid + product.quantity;
+
+      const newSale = await SaleModel.create({ quantity: resta, productId: id, clientId: product.clientId });
 
       const updatedInventory = await InventoryModel.update({ stock: newQuantity, solid: solid }, { where: { productId: id } });
 
       return {
-         updatedInventory,
+         newSale,
+         updatedInventory
       }
 
    }
