@@ -117,6 +117,25 @@
           }
         }
       },
+      "/api/v1/product/stats": {
+        "get": {
+          "summary": "stats product",
+          "tags": ["Product"],
+          "description": "See the statistics of your products",
+          
+          "responses": {
+            "200": {
+              "description": "Product get successfully"
+            },
+            "400": {
+              "description": "Error in the shipping data"
+            },
+            "500": {
+              "description": "Error in the server"
+            }
+          }
+        }
+      },
 
 
 
@@ -286,19 +305,8 @@
         }
       }
 
-
-
-
-
     },  
 
-
-
-
-
-
-
-    
 
 
     "components": {
@@ -410,8 +418,7 @@
                 "creationDate",
                 "updateDate"
             ]
-        },
-      
+        },      
 
 
       "Inventory get":{
