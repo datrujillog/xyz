@@ -22,5 +22,18 @@ function SaleRouter(app) {
             res.status(400).json({ message: error.message });
         }
     });
+
+    router.post('/operators/time-delivery', async (req, res) => {
+        try {
+            const product = req.body;
+            const results = await saleServ.getDeliveryTimesByOperator(product);
+            res.json({
+                message: "Time delivery made successfully",
+                results
+            });
+        } catch (error) {
+            res.status(400).json({ message: error.message });
+        }
+    });
 }
 module.exports = SaleRouter;
