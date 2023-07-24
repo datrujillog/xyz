@@ -17,6 +17,9 @@ module.exports = (sequelize) => {
                 type: DataTypes.UUID,
                 allowNull: false,
             },
+            operatorId: {
+                type: DataTypes.UUID,
+            },
             saleDate: {
                 type: DataTypes.DATE,
                 defaultValue: DataTypes.NOW,
@@ -25,6 +28,13 @@ module.exports = (sequelize) => {
                 type: DataTypes.INTEGER,
                 allowNull: false,
 
+            },
+            deliveryTime: {
+                type: DataTypes.DECIMAL(5, 2),
+                validate: { // Validar que el tiempo de entrega sea entre 0 y 24 horas
+                    min: 0,
+                    max: 24,
+                },
             },
         },
         { timestamps: true }
