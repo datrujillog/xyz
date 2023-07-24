@@ -1,6 +1,6 @@
 'use strict';
 
-const { ProductModel, InventoryModel,ClientModel,SaleModel } = require("../database");
+const { ProductModel, InventoryModel, ClientModel, SaleModel, OperatorModel } = require("../database");
 const InventoryService = require("./inventory.Service");
 class ProductService {
    constructor() {
@@ -44,6 +44,9 @@ class ProductService {
 
       const newSale = await SaleModel.create({ quantity: resta, productId: id, clientId: product.clientId });
 
+      //actualizar en la tabla productos el punctuation
+      const updatepunctuation = await ProductModel.update({ punctuation: product.punctuation }, { where: { id } });
+
       const updatedInventory = await InventoryModel.update({ stock: newQuantity, solid: solid }, { where: { productId: id } });
 
       return {
@@ -53,6 +56,34 @@ class ProductService {
 
    }
 
+
+
+   async getProductScores() {
+      const products = await ProductModel.findAll({
+         include: [
+            {
+               model: SaleModel,
+               include: [ClientModel],
+            },
+         ],
+      });
+
+      const productScores = {};
+
+      products.forEach((product) => {
+         const sales = product.sales;
+         if (sales.length > 0) {
+            const totalScore = sales.reduce((sum, sale) => sum + sale.client.punctuation, 0);
+            const averageScore = totalScore / sales.length;
+            productScores[product.name] = averageScore;
+         } else {
+            productScores[product.name] = 0;
+         }
+      });
+
+      return productScores;
+
+   }
 
 
 }
