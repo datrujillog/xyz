@@ -9,12 +9,7 @@ class ProductService {
 
 
    }
-   // GET /inventario: Obtener el inventario completo de productos en stock.
-   async getProducts() {
-
-
-   }
-
+  
    async createProduct(product) {
 
       const createdProduct = await ProductModel.create(product);
@@ -56,7 +51,7 @@ class ProductService {
 
    }
 
-
+   // ! REVISAR
    async getProductScores() {
       const products = await ProductModel.findAll({
          include: [
@@ -84,29 +79,29 @@ class ProductService {
 
    }
 
-   
+
    async getProductStatistics() {
-      
-         const products = await ProductModel.findAll({
-            include: [SaleModel],
-         });
-         
-         const productStatistics = products.map((product) => {
-            const sales = product.sales;
-            const totalSales = sales.length;
-            const totalRevenue = sales.reduce((total, sale) => total + sale.quantity * sale.price, 0); 
-            const averagePrice = totalRevenue / totalSales;
 
-            return {
-               product: product.name,
-               totalSales,
-               totalRevenue,
-               averagePrice,
-            };
-         });
+      const products = await ProductModel.findAll({
+         include: [SaleModel],
+      });
 
-         return productStatistics;
-      
+      const productStatistics = products.map((product) => {
+         const sales = product.sales;
+         const totalSales = sales.length;
+         const totalRevenue = sales.reduce((total, sale) => total + sale.quantity * sale.price, 0);
+         const averagePrice = totalRevenue / totalSales;
+
+         return {
+            product: product.name,
+            totalSales,
+            totalRevenue,
+            averagePrice,
+         };
+      });
+
+      return productStatistics;
+
    }
 }
 
