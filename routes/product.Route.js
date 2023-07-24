@@ -61,6 +61,15 @@ function ProductRouter(app) {
         }
     });
 
+
+    router.get('/scores', async (req, res) => {
+        try {
+            const results = await productServ.getProductScores();
+            res.json(results);
+        } catch (error) {
+            res.status(400).json({ message: error.message });
+        }
+    });
 }
 
 module.exports = ProductRouter;
