@@ -33,9 +33,7 @@ class SaleService {
         const sale = await SaleModel.findOne({ where: { id: product.saleId } });
         if (!sale) throw new Error("There is no sale with that id");
 
-        console.log(sale.quantity)
-        const updatedSale = await SaleModel.update({ deliveryTime: product.deliveryTime }, { where: { id: product.saleId } });
-
+        const updatedSale = await SaleModel.update({ deliveryTime: product.deliveryTime, operarioId:product.operatorId }, { where: { id: product.saleId } });
 
         return {
             msg: "Time delivery made successfully",
