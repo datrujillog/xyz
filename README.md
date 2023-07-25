@@ -143,7 +143,7 @@ Tiempo de entrega indica el tiempo que tarda este operario en realizar una entre
 - **Eliminar un producto:** Para eliminar un producto se debe hacer una petición DELETE a la ruta http://localhost:5000/api/v1/product/delete/:id
 
 
-- **Crear el Inventario**: Para crear el inventario se debe hacer una petición POST a la ruta http://localhost:5000/api/v1/inventory/create con los siguientes datos en el body de la petición:
+- **Crear el Inventario del producto**: Para crear el inventario se debe hacer una petición POST a la ruta http://localhost:5000/api/v1/inventory/create con los siguientes datos en el body de la petición:
 
 ```json
 {
@@ -152,7 +152,50 @@ Tiempo de entrega indica el tiempo que tarda este operario en realizar una entre
 }
 ```
 
-- **Llever el inventario del producto**: Para llevar el inventario se debe hacer una petición GET a la ruta http://localhost:5000/api/v1/inventory
+- **Llevar el inventario del producto**: Para llevar el inventario se debe hacer una petición GET a la ruta http://localhost:5000/api/v1/inventory
+
+
+- **Crear el cliente**: Para crear el cliente se debe hacer una petición POST a la ruta http://localhost:5000/api/v1/client/create con los siguientes datos en el body de la petición:
+
+```json
+{
+    "name": "Diego Trujillo",
+    "address": "Calle 1 # 1-1",
+    "email": "example@.com",
+    "phone": "123456789"
+}
+
+```
+
+- **Crear las ventas:** Para crear las ventas se debe hacer una petición POST a la ruta http://localhost:5000/api/v1/product/sell/{:id} con los siguientes datos en el body de la petición:
+
+```json
+{
+    "clientId": "con el Id del cliente",
+    "quantity": 1,
+    "punctuation": 4
+}
+```
+
+- **Manejar los tiempos de entrega:** Para manejar los tiempos de entrega se debe hacer una petición POST a la ruta http://localhost:5000/api/v1/operator/time-delivery con los siguientes datos en el body de la petición:
+El id del operario debe ser un id del cliente que se encuentre en la base de datos
+El id de la venta debe ser un id de la venta que se encuentre en la base de datos
+El deliveryTime debe ser un numero entre 0 y 24 horas Osea 4.5 es 4:30 horas
+
+```json
+{
+    "operatorId": "con el Id del operario", 
+    "saleId": "con el Id de la venta",
+    "deliveryTime":"4.5"  
+}
+```
+
+- **Clentes que mas compran:** Para conocer los clientes que mas compran se debe hacer una petición GET a la ruta http://localhost:5000/api/v1/sale/best-clients
+
+- **Estadisticas de los productos:** Para conocer las estadisticas de los productos se debe hacer una petición GET a la ruta http://localhost:5000/api/v1/product/stats
+
+- **Conocer la Puntuacion de los productos:** Para conocer la puntuacion de los productos se debe hacer una petición GET a la ruta http://localhost:5000/api/v1/product/scores
+
 
 
 
