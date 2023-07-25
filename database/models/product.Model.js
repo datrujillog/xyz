@@ -19,7 +19,7 @@ module.exports = (sequelize) => {
             },
             punctuation: {
                 type: DataTypes.INTEGER,
-                
+
             },
             creationDate: {
                 type: DataTypes.DATE,

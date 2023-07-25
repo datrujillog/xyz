@@ -115,4 +115,46 @@ Tiempo de entrega indica el tiempo que tarda este operario en realizar una entre
 - **URL de la API**: http://localhost:5000/api-docs/
 
 
+## como utilizar el API
+
+- **Crear un producto:** Para crear un producto se debe hacer una petición POST a la ruta http://localhost:5000/api/v1/product/create con los siguientes datos en el body de la petición:
+
+```json
+{
+    "name": "Tenis",
+    "description": "Tenis de deporte",
+    "creationDate": "2023-07-22",
+    "updateDate": "2023-07-22"
+}
+```
+
+- **Actualizar un producto:** Para actualizar un producto se debe hacer una petición PUT a la ruta http://localhost:5000/api/v1/product/update/:id con los siguientes datos en el body de la petición:
+
+```json
+{
+    "name": "Camisa Negra",
+    "description": "Camisa de mangalarga",
+    "punctuation": "3",
+    "creationDate": "2023-07-22",
+    "updateDate":"2023-07-22"
+}
+```
+
+- **Eliminar un producto:** Para eliminar un producto se debe hacer una petición DELETE a la ruta http://localhost:5000/api/v1/product/delete/:id
+
+
+- **Crear el Inventario**: Para crear el inventario se debe hacer una petición POST a la ruta http://localhost:5000/api/v1/inventory/create con los siguientes datos en el body de la petición:
+
+```json
+{
+    "productId": "con el Id del producto",
+    "stock": "10"
+}
+```
+
+- **Llever el inventario del producto**: Para llevar el inventario se debe hacer una petición GET a la ruta http://localhost:5000/api/v1/inventory
+
+
+
+
 
