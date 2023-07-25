@@ -28,10 +28,11 @@ class SaleService {
 
     async getDeliveryTimesByOperator(product) {
         const client = await ClientModel.findOne({ where: { id: product.operatorId } });
-        if (!client) throw new Error("There is no client with that id");
+        // if (!client) throw new Error("There is no client with that id");
+        // if (!client) throw new Error("There is no client with that id");
 
         const sale = await SaleModel.findOne({ where: { id: product.saleId } });
-        if (!sale) throw new Error("There is no sale with that id");
+        // if (!sale) throw new Error("There is no sale with that id");
 
         const updatedSale = await SaleModel.update({ deliveryTime: product.deliveryTime, operatorId:product.operatorId }, { where: { id: product.saleId } });
 

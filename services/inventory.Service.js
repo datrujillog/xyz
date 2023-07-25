@@ -34,10 +34,12 @@ class InventoryService {
 
             const inventory = await InventoryModel.findOne({ where: { productId: id } });
             if (!inventory) throw new Error("There is no product with that id");
+            // if(!inventory) return 'There is no product with that id';
             
             return inventory;
         } catch (error) {
             throw new Error(`${error.message}`);
+            // throw error;
         }
     }
 

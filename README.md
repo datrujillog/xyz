@@ -37,7 +37,7 @@
 - Ejecute el comando  ` docker-compose up -d ` para iniciar la base de datos mysql y adminer
 - Ejecutar el comando `npm install` para instalar las dependencias
 - Ejecutar el comando `npm run dev` para correr el proyecto
-- Ejecutar el comando `npm run test` para correr las pruebas
+- Ejecutar el comando `npm run test` para correr las pruebas  ? Por falta de tiempo no se pudieron realizar las pruebas completas de todos los sevicios
 
 ## Estructura del Proyecto
 

@@ -34,7 +34,7 @@ class ProductService {
       if (product.quantity > inventory.stock) throw new Error("Not enough stock");
       const newQuantity = inventory.stock - product.quantity;
       const resta = inventory.stock - newQuantity;
-
+      console.log(inventory)
       const solid = inventory.solid + product.quantity;
 
       const newSale = await SaleModel.create({ quantity: resta, productId: id, clientId: product.clientId });
