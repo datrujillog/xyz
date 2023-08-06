@@ -1,37 +1,24 @@
 {
-    "$schema": "https://railway.app/railway.schema.json",
-    "services": {
-      "web": {
-        "build": {
-          "builder": "DOCKERFILE",
-          "dockerfilePath": "Dockerfile"
-        },
-        "deploy": {
-          "numReplicas": 1,
-          "restartPolicyType": "ALWAYS"
-        }
+  "$schema": "https://railway.app/railway.schema.json",
+  "services": {
+    "mysql": {
+      "image": "mysql:8.0",
+      "environment": {
+        "MYSQL_ROOT_PASSWORD": "root",
+        "MYSQL_DATABASE": "DB-XYZ"
       },
-      "mysql": {
-        "image": "mysql:8.0",
-        "containers": {
-          "mysql": {
-            "env": {
-              "MYSQL_ROOT_PASSWORD": "root",
-              "MYSQL_DATABASE": "DB-XYZ"
-            }
-          },
-        "ports": [
-          {
-            "internal": 3306,
-            "public": 3306
-          }
-        ]
-        
-        },
-        "volumes": {
-          "data": "/var/lib/mysql"
-        }
-      }
+      "ports": [
+        "3306:3306"
+      ],
+      "volumes": [
+        "./data:/var/lib/mysql"
+      ]
+    },
+    "adminer": {
+      "image": "adminer",
+      "ports": [
+        "8081:8080"
+      ]
     }
   }
-  
+}
