@@ -1,5 +1,5 @@
 # Dockerfile for Node.js
-ARG NODE_VERSION=8.11-slim
+ARG NODE_VERSION=18.16.0
 FROM node:$NODE_VERSION
 
 WORKDIR /app
